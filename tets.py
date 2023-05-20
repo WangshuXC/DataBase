@@ -117,10 +117,10 @@ def find_teacher_course(name):
 def find_student_score(text,CNAME,TNAME):
     db = pymysql.connect(host='localhost',user= 'root',password= '200206', database='student', charset='utf8')
     cursor = db.cursor()
-    # sql = "select S.SNO,S.SNAME,SC.GRADE from  S,SC,C where S.SNO=SC.SNO and C.CNO=SC.CNO and C.CNAME='%s' and C.TNAME='%s'"%(CNAME,TNAME)
+    sql = "select S.SNO,S.SNAME,SC.GRADE from  S,SC,C where S.SNO=SC.SNO and C.CNO=SC.CNO and C.CNAME='%s' and C.TNAME='%s'"%(CNAME,TNAME)
     
     # 用视图查询
-    sql = " select sno,sname,grade from SCG where CNAME='%s' and TNAME='%s' "%(CNAME,TNAME)
+    #sql = " select sno,sname,grade from SCG where CNAME='%s' and TNAME='%s' "%(CNAME,TNAME)
     cursor.execute(sql)
     col=[]
     for i in list(np.array(cursor.description)):
@@ -136,8 +136,6 @@ def find_student_score(text,CNAME,TNAME):
 
 #老师修改成绩
 def change_score(SNO,GRADE,CNAME):
-
-    
     db = pymysql.connect(host='localhost',user= 'root',password= '200206', database='student', charset='utf8')
     cursor = db.cursor()
 
@@ -145,9 +143,9 @@ def change_score(SNO,GRADE,CNAME):
     cursor.execute(sql)
     print(sql);
     result = cursor.fetchall()
-    # sql = "replace into SC (SNO,CNO,GRADE) values ('%s','%s',%d)" % (SNO, result[0][0], int(GRADE))
+    sql = "replace into SC (SNO,CNO,GRADE) values ('%s','%s',%d)" % (SNO, result[0][0], int(GRADE))
     # 调用创建好的procedure----updatescore用来更新分数
-    sql = "call Updatescore('%s','%s',%d)" % (SNO, result[0][0], int(GRADE))
+    #sql = "call Updatescore('%s','%s',%d)" % (SNO, result[0][0], int(GRADE))
     print(sql)
     try:
         cursor.execute(sql)
