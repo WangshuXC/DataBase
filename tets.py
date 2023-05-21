@@ -43,18 +43,11 @@ def display_student(text, SNO):
     db = pymysql.connect(host='localhost', user='root',
                          password='200206', database='student', charset='utf8')
     cursor = db.cursor()
-    sql = "SELECT * FROM S where S.SNO='%s'" % SNO
+    sql = "SELECT S.SNO,S.SNAME,S.SEX,S.AGE,S.SDEPT FROM S where S.SNO='%s'" % SNO
     cursor.execute(sql)
-    col = []
-    for i in list(np.array(cursor.description)):
-        col.append(i[0])
-    text.insert(END, '%s %4s %4s %4s %4s' % tuple(col[0:5]))
-    text.insert(END, '\n')
-    result = cursor.fetchall()
+    for rec in cursor:
+        text.insert('', 'end', value=rec)
 
-    for row in result:
-        text.insert(END, '%s %4s %4s %4s %4s' % tuple(row[0:5]))
-        text.insert(END, '\n')
     db.close()
 
 # 显示可选课程
@@ -66,17 +59,8 @@ def display_course(text, SNO):
     cursor = db.cursor()
     sql = "select * from C where CNO not in (select C.CNO from  S,SC,C where S.SNO=SC.SNO and C.CNO=SC.CNO and S.SNO='%s')" % SNO
     cursor.execute(sql)
-    col = []
-    for i in list(np.array(cursor.description)):
-        col.append(i[0])
-    text.insert(END, col)
-    text.insert(END, '\n')
-
-    result = cursor.fetchall()
-
-    for row in result:
-        text.insert(END, row)
-        text.insert(END, '\n')
+    for rec in cursor:
+        text.insert('', 'end', value=rec)
     db.close()
 
 # 显示已选课程
@@ -88,17 +72,8 @@ def display_choose_course(text, SNO):
     cursor = db.cursor()
     sql = "select C.CNO,C.CNAME,C.CREDIT,C.CDEPT,C.TNAME from  S,SC,C where S.SNO=SC.SNO and C.CNO=SC.CNO and S.SNO='%s'" % SNO
     cursor.execute(sql)
-    col = []
-    for i in list(np.array(cursor.description)):
-        col.append(i[0])
-    text.insert(END, col)
-    text.insert(END, '\n')
-
-    result = cursor.fetchall()
-
-    for row in result:
-        text.insert(END, row)
-        text.insert(END, '\n')
+    for rec in cursor:
+        text.insert('', 'end', value=rec)
     db.close()
 
 # 显示学生成绩
@@ -110,16 +85,8 @@ def display_score(text, SNO):
     cursor = db.cursor()
     sql = "select C.CNO,C.CNAME,GRADE from  S,SC,C where S.SNO=SC.SNO and C.CNO=SC.CNO and S.SNO='%s'" % SNO
     cursor.execute(sql)
-    col = []
-    for i in list(np.array(cursor.description)):
-        col.append(i[0])
-    text.insert(END, col)
-    text.insert(END, '\n')
-    result = cursor.fetchall()
-
-    for row in result:
-        text.insert(END, row)
-        text.insert(END, '\n')
+    for rec in cursor:
+        text.insert('', 'end', value=rec)
     db.close()
 
 # 老师所上的课程
@@ -149,16 +116,6 @@ def find_student_score(student_text, CNAME, TNAME):
     # 用视图查询
     # sql = " select sno,sname,grade from SCG where CNAME='%s' and TNAME='%s' "%(CNAME,TNAME)
     cursor.execute(sql)
-    col = []
-    for i in list(np.array(cursor.description)):
-        col.append(i[0])
-    text.insert(END, col)
-    text.insert(END, '\n')
-    result = cursor.fetchall()
-
-    for row in result:
-        text.insert(END, row)
-        text.insert(END, '\n')
     """
     for rec in cursor:
         student_text.insert('', 'end', value=rec)

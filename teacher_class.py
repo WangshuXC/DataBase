@@ -48,7 +48,7 @@ class Teacher:
         self.student_label.grid(row=1, column=1)
 
         self.student_text.grid(row=2, column=1, sticky='news')
-        self.sb.grid(row=2, column=3, sticky='ns')
+        self.sb.grid(row=2, column=2, sticky='ns')
 
         var = tk.StringVar()
         for item in tets.find_teacher_course(self.TNO):
