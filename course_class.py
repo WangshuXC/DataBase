@@ -1,27 +1,43 @@
 from tkinter import *
 import tets
 
+
 class course:
-    def __init__(self,SNO):
+    def __init__(self, SNO):
         self.root = Tk()
         self.root.config(background="white")
         self.root.wm_title(SNO)
         self.root.geometry("900x500")
-        self.root.resizable(0,0)
-        self.SNO=SNO
-        self.student_label = Label(self.root, text="学生详细信息：",bg="#7e0c6e",fg="white",font=("黑体", 12))
-        self.course_label = Label(self.root, text="可选课程",bg="#7e0c6e",fg="white",font=("黑体", 12))
-        self.score_label = Label(self.root, text="已修课程成绩",bg="#7e0c6e",fg="white",font=("黑体", 12))
-        self.choose_course_label = Label(self.root, text="已选课程",bg="#7e0c6e",fg="white",font=("黑体", 12))
-        self.course_entry_label = Label(self.root, text="请输入课程号：",bg="#7e0c6e",fg="white",font=("黑体", 12))
+        self.root.resizable(0, 0)
+        self.SNO = SNO
+
+        self.student_label = Label(
+            self.root, text="学生详细信息：", bg="#7e0c6e", fg="white", font=("黑体", 12))
+        self.course_label = Label(
+            self.root, text="可选课程", bg="#7e0c6e", fg="white", font=("黑体", 12))
+        self.score_label = Label(
+            self.root, text="已修课程成绩", bg="#7e0c6e", fg="white", font=("黑体", 12))
+        self.choose_course_label = Label(
+            self.root, text="已选课程", bg="#7e0c6e", fg="white", font=("黑体", 12))
+        self.course_entry_label = Label(
+            self.root, text="请输入课程号：", bg="#7e0c6e", fg="white", font=("黑体", 12))
+
         self.student_text = Text(self.root, height=10, width=50)
-        self.course_text = Text(self.root, height=10,bg="white",fg="cadetblue", width=50)
-        self.score_text = Text(self.root, height=10,width=50)
-        self.choose_course_text = Text(self.root, height=10, width=50,bg="white",fg="maroon")
+        self.course_text = Text(self.root, height=10,
+                                bg="white", fg="cadetblue", width=50)
+        self.score_text = Text(self.root, height=10, width=50)
+        self.choose_course_text = Text(
+            self.root, height=10, width=50, bg="white", fg="maroon")
+
         self.course_entry = Entry(self.root, width=5)
-        self.course_button = Button(self.root, text="选课" ,bg="cadetblue",fg="white",font=("黑体", 12),command=self.choose_course)
-        self.course_button2 = Button(self.root, text="退课", bg="cadetblue",fg="white",font=("黑体", 12),command=self.delete_course)
-        self.course_button3 = Button(self.root, text="关闭",bg="cadetblue",fg="white",font=("黑体", 12),command=self.root.destroy)
+
+        self.course_button = Button(self.root, text="选课", bg="cadetblue", fg="white", font=(
+            "黑体", 12), command=self.choose_course)
+        self.course_button2 = Button(self.root, text="退课", bg="cadetblue", fg="white", font=(
+            "黑体", 12), command=self.delete_course)
+        self.course_button3 = Button(self.root, text="关闭", bg="cadetblue", fg="white", font=(
+            "黑体", 12), command=self.root.destroy)
+
     def inilize(self):
         self.student_label.grid(row=0, column=0, sticky=W)
         self.student_text.grid(row=1, column=0, sticky=W)
@@ -50,7 +66,7 @@ class course:
     # 退课
     def delete_course(self):
         course_number = self.course_entry.get()
-        tets.delete_choose_course(self.SNO,str(course_number))
+        tets.delete_choose_course(self.SNO, str(course_number))
         self.update_ui()
 
     # 更新ui
@@ -70,6 +86,6 @@ class course:
         self.root.mainloop()
 
 
-if __name__=='__main__':
-    c=course('S5')
+if __name__ == '__main__':
+    c = course('S5')
     c.start()
