@@ -138,13 +138,14 @@ def find_teacher_course(name):
 # 查询选了该老师该课的学生
 
 
-def find_student_score(text, CNAME, TNAME):
+def find_student_score(student_text, CNAME, TNAME):
     db = pymysql.connect(host='localhost', user='root',
                          password='200206', database='student', charset='utf8')
     cursor = db.cursor()
     sql = "select S.SNO,S.SNAME,SC.GRADE from  S,SC,C where S.SNO=SC.SNO and C.CNO=SC.CNO and C.CNAME='%s' and C.TNAME='%s'" % (
         CNAME, TNAME)
-
+    cursor.execute(sql)
+    """
     # 用视图查询
     # sql = " select sno,sname,grade from SCG where CNAME='%s' and TNAME='%s' "%(CNAME,TNAME)
     cursor.execute(sql)
@@ -158,6 +159,10 @@ def find_student_score(text, CNAME, TNAME):
     for row in result:
         text.insert(END, row)
         text.insert(END, '\n')
+    """
+    for rec in cursor:
+        student_text.insert('', 'end', value=rec)
+
     db.close()
 
 # 老师修改成绩
