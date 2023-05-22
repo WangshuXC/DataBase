@@ -71,13 +71,13 @@ Label(root, text="用户名", fg="#7e0c6e", bg="white",
       font=("黑体", 12)).place(x=70, y=250)
 user_entry = Entry(root, width=15, bg='#7e0c6e',
                    fg='white', insertbackground='white')
-user_entry.insert(0, 's1')
+user_entry.insert(0, 'S2110951')
 user_entry.place(x=150, y=250)
 Label(root, text=" 密码 ", fg="#7e0c6e", bg="white",
       font=("黑体", 12)).place(x=70, y=300)
 password_entry = Entry(root, width=15, bg='#7e0c6e',
                        fg='white', insertbackground='white', show='*')
-password_entry.insert(0, 's1')
+password_entry.insert(0, '5')
 password_entry.place(x=150, y=300)
 
 star_button = Button(root, text="登陆", bg="#7e0c6e", fg="white", font=(

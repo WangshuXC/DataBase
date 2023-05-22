@@ -34,80 +34,108 @@ CREATE TABLE sc (
     FOREIGN KEY (CNO) REFERENCES c(CNO)
 );
 INSERT INTO `s` (`SNO`, `SNAME`, `SEX`, `AGE`, `SDEPT`, `PSWD`)
-VALUES ('S1', '李翼君', '女', '19', '计算机', 'S1');
+VALUES ('S2110001', '王否一', '男', '19', '物联网', '1');
 INSERT INTO `s` (`SNO`, `SNAME`, `SEX`, `AGE`, `SDEPT`, `PSWD`)
-VALUES ('S2', '刘一鸣', '男', '22', '信息安全', 'S2');
+VALUES ('S2110002', '王可零', '男', '22', '信息安全', '2');
 INSERT INTO `s` (`SNO`, `SNAME`, `SEX`, `AGE`, `SDEPT`, `PSWD`)
-VALUES ('S3', '赵海', '男', '20', '信息安全', 'S3');
+VALUES ('S2110003', '史武天', '男', '20', '信息安全', '3');
 INSERT INTO `s` (`SNO`, `SNAME`, `SEX`, `AGE`, `SDEPT`, `PSWD`)
-VALUES ('S4', '朱赛', '男', '20', '计算机', 'S4');
+VALUES ('S2110004', '史文地', '女', '20', '计算机', '4');
 INSERT INTO `s` (`SNO`, `SNAME`, `SEX`, `AGE`, `SDEPT`, `PSWD`)
-VALUES ('S5', '刘艺霖', '女', '18', '计算机', 'S5');
+VALUES ('S2110951', '梁晓储', '男', '20', '物联网', '5');
 INSERT INTO `s` (`SNO`, `SNAME`, `SEX`, `AGE`, `SDEPT`, `PSWD`)
-VALUES ('S6', '刘意', '男', '21', '计算机', 'S6');
+VALUES ('S2110006', '王想宇', '男', '21', '计算机', '6');
 INSERT INTO `s` (`SNO`, `SNAME`, `SEX`, `AGE`, `SDEPT`, `PSWD`)
-VALUES ('S7', '王春', '男', '20', '信息安全', 'S7');
+VALUES ('S2110007', '王思宙', '男', '20', '信息安全', '7');
 INSERT INTO `s` (`SNO`, `SNAME`, `SEX`, `AGE`, `SDEPT`, `PSWD`)
-VALUES ('S8', '范心澄', '女', '18', '信息安全', 'S8');
+VALUES ('S2110008', '子悦', '女', '18', '物联网', '8');
 INSERT INTO `s` (`SNO`, `SNAME`, `SEX`, `AGE`, `SDEPT`, `PSWD`)
-VALUES ('S9', '雪涛', '女', '19', '计算机', 'S9');
+VALUES ('S2110009', '孙愁', '女', '19', '计算机', '9');
+INSERT INTO `s` (`SNO`, `SNAME`, `SEX`, `AGE`, `SDEPT`, `PSWD`)
+VALUES ('S2110010', '刘破铭', '男', '20', '信息安全', '10');
+INSERT INTO `s` (`SNO`, `SNAME`, `SEX`, `AGE`, `SDEPT`, `PSWD`)
+VALUES ('S2110011', '刘修箴', '女', '19', '计算机', '11');
 INSERT INTO `t` (`TNO`, `TNAME`, `SEX`, `AGE`, `TDEPT`, `PSWD`)
-VALUES ('T301', '康文', '女', 35, '通识选修', 'T601');
+VALUES ('T001', '祝武壮', '男', 58, '数学', '1');
 INSERT INTO `t` (`TNO`, `TNAME`, `SEX`, `AGE`, `TDEPT`, `PSWD`)
-VALUES ('T401', '吴志刚', '男', 40, '计算机技术', 'T401');
+VALUES ('T002', '刘哲文', '男', 42, '计算机技术', '2');
 INSERT INTO `t` (`TNO`, `TNAME`, `SEX`, `AGE`, `TDEPT`, `PSWD`)
-VALUES ('T402', '徐一', '女', 33, '计算机技术', 'T402');
+VALUES ('T003', '李浪', '女', 35, '计算机技术', '3');
 INSERT INTO `t` (`TNO`, `TNAME`, `SEX`, `AGE`, `TDEPT`, `PSWD`)
-VALUES ('T403', '李含章', '男', 50, '计算机技术', 'T403');
+VALUES ('T004', '张石', '男', 40, '计算机技术', '4');
 INSERT INTO `t` (`TNO`, `TNAME`, `SEX`, `AGE`, `TDEPT`, `PSWD`)
-VALUES ('T404', '刘红', '女', 46, '计算机技术', 'T404');
+VALUES ('T005', '温龙龙', '男', 40, '计算机技术', '5');
 INSERT INTO `t` (`TNO`, `TNAME`, `SEX`, `AGE`, `TDEPT`, `PSWD`)
-VALUES ('T601', '张宇迪', '男', 49, '信息安全', 'T501');
+VALUES ('T006', '李庆除', '男', 49, '网络安全', '6');
+INSERT INTO `t` (`TNO`, `TNAME`, `SEX`, `AGE`, `TDEPT`, `PSWD`)
+VALUES ('T007', '李洁', '女', 33, '马克思', '7');
 INSERT INTO `c` (`CNO`, `CNAME`, `CREDIT`, `CDEPT`, `TNAME`)
-VALUES ('C1', '可视化技术', 4, '计算机', '李含章');
+VALUES ('C1', '高等数学', 4, '数学', '祝武壮');
 INSERT INTO `c` (`CNO`, `CNAME`, `CREDIT`, `CDEPT`, `TNAME`)
-VALUES ('C2', '数据结构', 4, '计算机', '刘红');
+VALUES ('C2', '软件安全', 4, '计算机', '刘哲文');
 INSERT INTO `c` (`CNO`, `CNAME`, `CREDIT`, `CDEPT`, `TNAME`)
-VALUES ('C3', '离散数学', 6, '信息安全', '张宇迪');
+VALUES ('C3', '离散数学', 4, '计算机', '温龙龙');
 INSERT INTO `c` (`CNO`, `CNAME`, `CREDIT`, `CDEPT`, `TNAME`)
-VALUES ('C4', '计算机组成原理', 4, '计算机', '李含章');
+VALUES ('C4', '组成原理', 4, '计算机', '李浪');
 INSERT INTO `c` (`CNO`, `CNAME`, `CREDIT`, `CDEPT`, `TNAME`)
-VALUES ('C5', '数据库系统', 4, '计算机', '吴志刚');
+VALUES ('C5', '数据库系统', 6, '计算机', '温龙龙');
 INSERT INTO `c` (`CNO`, `CNAME`, `CREDIT`, `CDEPT`, `TNAME`)
-VALUES ('C6', 'python程序设计', 4, '计算机', '吴志刚');
+VALUES ('C6', '程序设计', 4, '计算机', '张石');
 INSERT INTO `c` (`CNO`, `CNAME`, `CREDIT`, `CDEPT`, `TNAME`)
-VALUES ('C7', '编译原理', 4, '计算机', '徐一');
+VALUES ('C7', '嵌入式系统', 4, '计算机', '李庆除');
 INSERT INTO `c` (`CNO`, `CNAME`, `CREDIT`, `CDEPT`, `TNAME`)
-VALUES ('C8', '系统结构', 4, '计算机', '刘红');
+VALUES ('C8', '系统结构', 4, '计算机', '李浪');
 INSERT INTO `c` (`CNO`, `CNAME`, `CREDIT`, `CDEPT`, `TNAME`)
-VALUES ('C9', '古典主义音乐', 3, '通识选修', '康文');
+VALUES ('C9', '毛概论', 3, '通识必修', '李洁');
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S1', 'C1', 0);
+VALUES ('S2110001', 'C1', 0);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S1', 'C2', 0);
+VALUES ('S2110001', 'C2', 0);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S1', 'C4', 0);
+VALUES ('S2110001', 'C4', 0);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S1', 'C6', 0);
+VALUES ('S2110001', 'C6', 0);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S2', 'C5', 0);
+VALUES ('S2110002', 'C5', 0);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S2', 'C6', 0);
+VALUES ('S2110002', 'C6', 0);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S4', 'C1', 0);
+VALUES ('S2110004', 'C1', 0);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S4', 'C2', 0);
+VALUES ('S2110004', 'C2', 0);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S4', 'C9', 0);
+VALUES ('S2110004', 'C9', 0);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S5', 'C1', 0);
+VALUES ('S2110951', 'C1', 0);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S5', 'C8', 0);
+VALUES ('S2110951', 'C5', 100);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S5', 'C9', 0);
+VALUES ('S2110951', 'C9', 66);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S8', 'C6', 0);
+VALUES ('S2110008', 'C6', 0);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S1', 'C8', 77);
+VALUES ('S2110011', 'C8', 0);
 INSERT INTO `sc` (`SNO`, `CNO`, `GRADE`)
-VALUES ('S7', 'C6', 80);
+VALUES ('S2110007', 'C6', 0);
+CREATE INDEX idx_scgrade ON sc(GRADE);
+CREATE TABLE databasegrade (
+    SNO CHAR(10) NOT NULL,
+    GRADE TINYINT NOT NULL,
+    PRIMARY KEY (SNO),
+    FOREIGN KEY (GRADE) REFERENCES sc(GRADE)
+);
+INSERT INTO `databasegrade` (`SNO`, `GRADE`)
+VALUES ('S2110002', 0);
+INSERT INTO `databasegrade` (`SNO`, `GRADE`)
+VALUES ('S2110951', 100);
+CREATE INDEX idx_scgrade ON sc(GRADE);
+CREATE TABLE databasegrade (
+    SNO CHAR(10) NOT NULL,
+    GRADE TINYINT NOT NULL,
+    PRIMARY KEY (SNO),
+    FOREIGN KEY (GRADE) REFERENCES sc(GRADE)
+);
+INSERT INTO `databasegrade` (`SNO`, `GRADE`)
+VALUES ('S2110002', 0);
+INSERT INTO `databasegrade` (`SNO`, `GRADE`)
+VALUES ('S2110951', 100);
