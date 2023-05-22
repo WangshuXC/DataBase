@@ -11,7 +11,6 @@ def insert_choose_course(SNO, CNO, GRADE):
                          password='200206', database='student', charset='utf8')
     cursor = db.cursor()
     sql = "insert SC (SNO,CNO,GRADE) values ('%s','%s',%d)" % (SNO, CNO, GRADE)
-    # cursor.execute(sql)
     try:
         cursor.execute(sql)
         db.commit()  # 事务提交
@@ -129,16 +128,15 @@ def change_score(SNO, GRADE, CNAME):
     db = pymysql.connect(host='localhost', user='root',
                          password='200206', database='student', charset='utf8')
     cursor = db.cursor()
-
+    # print(SNO, GRADE, CNAME)
     sql = "select CNO from  C where CNAME='%s'" % (CNAME)
     cursor.execute(sql)
-    print(sql)
+    # print(sql)
     result = cursor.fetchall()
-    sql = "replace into SC (SNO,CNO,GRADE) values ('%s','%s',%d)" % (
-        SNO, result[0][0], int(GRADE))
+    # sql = "replace into SC (SNO,CNO,GRADE) values ('%s','%s',%d)" % (SNO, result[0][0], int(GRADE))
     # 调用创建好的procedure----updatescore用来更新分数
-    # sql = "call Updatescore('%s','%s',%d)" % (SNO, result[0][0], int(GRADE))
-    print(sql)
+    sql = "call updatascore('%s','%s',%d)" % (SNO, result[0][0], int(GRADE))
+    # print(sql)
     try:
         cursor.execute(sql)
         db.commit()  # 事务提交

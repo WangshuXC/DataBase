@@ -33,8 +33,10 @@ class Teacher:
         tk.Label(self.root, text="成绩：", bg="#7e0c6e",
                  fg="white", font=("黑体", 12)).grid(row=5, column=0, pady=10)
 
-        self.student_id_entry = tk.Entry(self.root, text="学号", width=5, bg='#7e0c6e', fg='white', insertbackground='white')
-        self.student_grape_entry = tk.Entry(self.root, text="成绩", width=5, bg='#7e0c6e', fg='white', insertbackground='white')
+        self.student_id_entry = tk.Entry(
+            self.root, text="学号", width=8, bg='#7e0c6e', fg='white', insertbackground='white')
+        self.student_grape_entry = tk.Entry(
+            self.root, text="成绩", width=8, bg='#7e0c6e', fg='white', insertbackground='white')
 
         self.student_button = tk.Button(
             self.root, text="查询", command=self.find_score, bg="cadetblue", fg="white", font=("黑体", 12))
@@ -89,5 +91,5 @@ class Teacher:
 
 
 if __name__ == '__main__':
-    c = Teacher('刘红')
+    c = Teacher('温龙龙')
     c.start()
