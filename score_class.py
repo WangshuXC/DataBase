@@ -19,10 +19,10 @@ class score:
 
         columns_score_text = ('CNO', 'CNAME', 'GRADE')
         self.score_text = ttk.Treeview(
-            self.root, height=7, columns=columns_score_text, show='headings')
+            self.root, height=14, columns=columns_score_text, show='headings')
         for col in columns_score_text:
             self.score_text.heading(col, text=col)
-            self.score_text.column(col, width=100, anchor=tk.CENTER)
+            self.score_text.column(col, width=135, anchor=tk.CENTER)
 
         self.course_button = tk.Button(self.root, text="关闭", bg="cadetblue", fg="white", font=(
             "黑体", 12), command=self.root.destroy)
@@ -33,10 +33,10 @@ class score:
         tets.display_score(self.score_text, self.SNO)
 
     def inilize(self):
-        self.score_label.grid(row=0, column=1, sticky=tk.W)
+        self.score_label.grid(row=0, column=1, sticky=(tk.N, tk.S))
         self.score_text.grid(row=1, column=1, sticky='news')
-        self.course_button.grid(row=1, column=2)
-        self.course_button2.grid(row=2, column=2)
+        self.course_button.grid(row=3, column=1)
+        self.course_button2.grid(row=2, column=1, pady=30)
 
     def start(self):
         self.inilize()

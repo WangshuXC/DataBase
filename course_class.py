@@ -1,6 +1,5 @@
 from tkinter import ttk
 import tkinter as tk
-from PIL import Image, ImageTk
 import tets
 import score_class
 
@@ -14,8 +13,6 @@ class course:
         self.root.resizable(0, 0)
         self.SNO = SNO
 
-        self.student_label = tk.Label(
-            self.root, text="学生详细信息：", bg="#7e0c6e", fg="white", font=("黑体", 12))
         self.course_label = tk.Label(
             self.root, text="可选课程", bg="#7e0c6e", fg="white", font=("黑体", 12))
         self.choose_course_label = tk.Label(
@@ -23,7 +20,6 @@ class course:
         self.course_entry_label = tk.Label(
             self.root, text="请输入课程号：", bg="#7e0c6e", fg="white", font=("黑体", 12))
 
-        # self.student_text = tk.Text(self.root, height=7, width=50)
         columns_student_text = ('SNO', 'SNAME', 'SEX', 'AGE', 'SDEPT')
         self.student_text = ttk.Treeview(
             self.root, height=1, columns=columns_student_text, show='headings')
@@ -31,7 +27,6 @@ class course:
             self.student_text.heading(col, text=col)
             self.student_text.column(col, width=80, anchor=tk.CENTER)
 
-        # self.course_text = tk.Text(self.root, height=7,bg="white", fg="cadetblue", width=50)
         columns_course_text = ('CNO', 'CNAME', 'CREDIT', 'CDEPT', 'TNAME')
         self.course_text = ttk.Treeview(
             self.root, height=7, columns=columns_course_text, show='headings')
@@ -39,7 +34,6 @@ class course:
             self.course_text.heading(col, text=col)
             self.course_text.column(col, width=80, anchor=tk.CENTER)
 
-        # self.choose_course_text = tk.Text(self.root, height=7, width=50, bg="white", fg="maroon")
         columns_choose_course_text = (
             'CNO', 'CNAME', 'CREDIT', 'CDEPT', 'TNAME')
         self.choose_course_text = ttk.Treeview(
@@ -48,7 +42,8 @@ class course:
             self.choose_course_text.heading(col, text=col)
             self.choose_course_text.column(col, width=80, anchor=tk.CENTER)
 
-        self.course_entry = tk.Entry(self.root, width=5)
+        self.course_entry = tk.Entry(
+            self.root, width=5, bg='#7e0c6e', fg='white', insertbackground='white')
 
         self.course_button = tk.Button(self.root, text="选课", bg="cadetblue", fg="white", font=(
             "黑体", 12), command=self.choose_course)
@@ -60,21 +55,20 @@ class course:
             "黑体", 12), command=self.intoscore(SNO))
 
     def inilize(self):
-        self.student_label.grid(row=0, column=0, sticky=tk.W)
-        self.student_text.grid(row=1, column=0, sticky='news')
+        self.student_text.place(x=295, y=400)
 
-        self.course_label.grid(row=3, column=0, sticky=tk.W)
-        self.course_text.grid(row=4, column=0, sticky='news')
+        self.course_label.grid(row=3, column=0, sticky=(tk.N, tk.S))
+        self.course_text.grid(row=4, column=0, sticky='news', padx=35)
 
-        self.choose_course_label.grid(row=3, column=1, sticky=tk.W)
-        self.choose_course_text.grid(row=4, column=1, sticky='news')
+        self.choose_course_label.grid(row=3, column=2, sticky=(tk.N, tk.S))
+        self.choose_course_text.grid(row=4, column=2, sticky='news', padx=35)
 
-        self.course_entry_label.grid(row=0, column=3)
-        self.course_entry.grid(row=1, column=3)
-        self.course_button.grid(row=5, column=0)
-        self.course_button2.grid(row=5, column=1)
-        self.course_button3.grid(row=5, column=2)
-        self.course_button4.grid(row=4, column=3)
+        self.course_entry_label.grid(row=6, column=0, pady=20)
+        self.course_entry.grid(row=7, column=0)
+        self.course_button.grid(row=6, column=2)
+        self.course_button2.grid(row=7, column=2)
+        self.course_button3.grid(row=2, column=1)
+        self.course_button4.grid(row=1, column=1, pady=10)
 
     # 选课
     def choose_course(self):

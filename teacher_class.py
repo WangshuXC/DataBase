@@ -15,9 +15,9 @@ class Teacher:
         self.root.geometry("900x500")
         self.root.resizable(0, 0)
         self.course_label = tk.Label(
-            self.root, text="请选择课程名：", bg="saddlebrown", fg="white", font=("黑体", 12))
+            self.root, text="请选择课程名：", bg="#7e0c6e", fg="white", font=("黑体", 12))
         self.student_label = tk.Label(
-            self.root, text="已选修此课程的学生：", bg="saddlebrown", fg="white", font=("黑体", 12))
+            self.root, text="已选修此课程的学生：", bg="#7e0c6e", fg="white", font=("黑体", 12))
 
         self.lb = tk.Listbox(self.root, width=20, height=10)
         columns = ('SNO', 'SNAME', 'GRADE')
@@ -30,9 +30,9 @@ class Teacher:
                                command=self.student_text.yview)
         self.student_text.config(yscrollcommand=self.sb.set)
 
-        tk.Label(self.root, text="学号：", bg="saddlebrown",
+        tk.Label(self.root, text="学号：", bg="#7e0c6e",
                  fg="white", font=("黑体", 12)).grid(row=3, column=3)
-        tk.Label(self.root, text="成绩：", bg="saddlebrown",
+        tk.Label(self.root, text="成绩：", bg="#7e0c6e",
                  fg="white", font=("黑体", 12)).grid(row=5, column=3)
 
         self.student_id_entry = tk.Entry(self.root, text="学号", width=5)

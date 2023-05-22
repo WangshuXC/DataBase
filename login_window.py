@@ -1,9 +1,9 @@
 from tkinter import *
-import course_class
-import teacher_class
+import tkinter as tk
 import pymysql
 from PIL import Image, ImageTk
-import tkinter as tk
+import course_class
+import teacher_class
 
 
 def judge():
@@ -63,7 +63,7 @@ root.title("用户登录界面")
 photo = Image.open("pic/nk_pic.jpg")
 photo = photo.resize((400, 200))  # 规定图片大小
 img0 = ImageTk.PhotoImage(photo)
-img1 = tk.Label(image=img0).place(x=0, y=0)
+img1 = tk.Label(image=img0).place(x=-2, y=0)
 
 root.config(background="white")
 root.geometry("400x500+800+300")
