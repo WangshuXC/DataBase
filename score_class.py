@@ -10,7 +10,7 @@ class score:
         self.root = tk.Tk()
         self.root.config(background="white")
         self.root.wm_title(SNO)
-        self.root.geometry("400x500")
+        self.root.geometry("400x500+300+100")
         self.root.resizable(0, 0)
         self.SNO = SNO
 

@@ -56,8 +56,6 @@ def viewswitch():
 
 root = Tk()
 root.title("用户登录界面")
-# 设置图标
-# root.tk.call('wm', 'iconphoto', root._w, tk.PhotoImage(file='pic/nk_ico.png'))
 
 # 背景图
 photo = Image.open("pic/nk_pic.jpg")
@@ -66,7 +64,7 @@ img0 = ImageTk.PhotoImage(photo)
 img1 = tk.Label(image=img0).place(x=-2, y=0)
 
 root.config(background="white")
-root.geometry("400x500+800+300")
+root.geometry("400x500+300+100")
 root.resizable(0, 0)
 
 Label(root, text="用户名", fg="#7e0c6e", bg="white",

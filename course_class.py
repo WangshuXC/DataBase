@@ -9,7 +9,7 @@ class course:
         self.root = tk.Tk()
         self.root.config(background="white")
         self.root.wm_title(SNO)
-        self.root.geometry("1000x500")
+        self.root.geometry("1000x500+300+100")
         self.root.resizable(0, 0)
         self.SNO = SNO
 
@@ -30,6 +30,7 @@ class course:
         columns_course_text = ('CNO', 'CNAME', 'CREDIT', 'CDEPT', 'TNAME')
         self.course_text = ttk.Treeview(
             self.root, height=7, columns=columns_course_text, show='headings')
+        self.course_text.bind('<<TreeviewSelect>>', self.on_select)
         for col in columns_course_text:
             self.course_text.heading(col, text=col)
             self.course_text.column(col, width=80, anchor=tk.CENTER)
@@ -38,6 +39,7 @@ class course:
             'CNO', 'CNAME', 'CREDIT', 'CDEPT', 'TNAME')
         self.choose_course_text = ttk.Treeview(
             self.root, height=7, columns=columns_choose_course_text, show='headings')
+        self.choose_course_text.bind('<<TreeviewSelect>>', self.on_select)
         for col in columns_choose_course_text:
             self.choose_course_text.heading(col, text=col)
             self.choose_course_text.column(col, width=80, anchor=tk.CENTER)
@@ -115,6 +117,13 @@ class course:
             s = score_class.score(SNO)
             s.start()
         return inner
+
+    def on_select(self, event):
+        tree = event.widget
+        selected_item = tree.selection()[0]
+        value = tree.item(selected_item, 'values')[0]
+        self.course_entry.delete(0, tk.END)
+        self.course_entry.insert(tk.END, value)
 
 
 if __name__ == '__main__':
