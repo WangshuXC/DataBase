@@ -1,5 +1,5 @@
 from tkinter import ttk
-import tets
+import defs
 import tkinter as tk
 
 
@@ -51,7 +51,7 @@ class Teacher:
         self.sb.place(x=522, y=22, height=187)
 
         var = tk.StringVar()
-        for item in tets.find_teacher_course(self.TNO):
+        for item in defs.find_teacher_course(self.TNO):
             self.lb.insert(tk.END, item)
         self.lb.grid(row=2, column=0, padx=20)
         self.student_id_entry.grid(row=4, column=0)
@@ -66,7 +66,7 @@ class Teacher:
         CNAME = self.lb.get(self.lb.curselection())[0]
         for row in self.student_text.get_children():
             self.student_text.delete(row)
-        tets.find_student_score(self.student_text, CNAME, self.TNO)
+        defs.find_student_score(self.student_text, CNAME, self.TNO)
     # 修改成绩
 
     def change_score(self):
@@ -74,7 +74,7 @@ class Teacher:
         SNO = self.student_id_entry.get()
         GRADE = self.student_grape_entry.get()
         CNAME = self.lb.get(self.lb.curselection())[0]
-        tets.change_score(SNO, GRADE, CNAME)
+        defs.change_score(SNO, GRADE, CNAME)
         self.find_score()
 
     def start(self):

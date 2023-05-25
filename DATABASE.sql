@@ -131,9 +131,6 @@ SET GRADE = New_GRADE
 WHERE SNO = New_SNO
     AND CNO = New_CNO;
 END;
---
--- 分割线
---
 CREATE TRIGGER `AddScore` BEFORE
 INSERT ON `sc` FOR EACH ROW BEGIN IF(
         new.CNO NOT IN(
@@ -158,12 +155,9 @@ INSERT INTO databasegrade
 VALUES(new.SNO, 0);
 END IF;
 END;
---
--- 分割线
---
 CREATE TRIGGER `DeleteDatabase` BEFORE
 INSERT ON sc FOR EACH ROW BEGIN IF(old.CNO = 'C5') THEN
 DELETE FROM databasegrade
-WHERE SNO = OLD.SNO;
+WHERE SNO = old.SNO;
 END IF;
 END;

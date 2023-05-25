@@ -1,7 +1,5 @@
 # coding=utf-8
 import pymysql
-import numpy as np
-from tkinter import *
 
 # 选课
 
@@ -108,14 +106,16 @@ def find_student_score(student_text, CNAME, TNAME):
     db = pymysql.connect(host='localhost', user='root',
                          password='200206', database='student', charset='utf8')
     cursor = db.cursor()
+    """
     sql = "select S.SNO,S.SNAME,SC.GRADE from  S,SC,C where S.SNO=SC.SNO and C.CNO=SC.CNO and C.CNAME='%s' and C.TNAME='%s'" % (
         CNAME, TNAME)
     cursor.execute(sql)
     """
+
     # 用视图查询
-    # sql = " select sno,sname,grade from SCG where CNAME='%s' and TNAME='%s' "%(CNAME,TNAME)
+    sql = " select sno,sname,grade from SCG where CNAME='%s' and TNAME='%s' "%(CNAME,TNAME)
     cursor.execute(sql)
-    """
+
     for rec in cursor:
         student_text.insert('', 'end', value=rec)
 
@@ -128,15 +128,12 @@ def change_score(SNO, GRADE, CNAME):
     db = pymysql.connect(host='localhost', user='root',
                          password='200206', database='student', charset='utf8')
     cursor = db.cursor()
-    # print(SNO, GRADE, CNAME)
     sql = "select CNO from  C where CNAME='%s'" % (CNAME)
     cursor.execute(sql)
-    # print(sql)
     result = cursor.fetchall()
     # sql = "replace into SC (SNO,CNO,GRADE) values ('%s','%s',%d)" % (SNO, result[0][0], int(GRADE))
     # 调用创建好的procedure----updatescore用来更新分数
-    sql = "call updatascore('%s','%s',%d)" % (SNO, result[0][0], int(GRADE))
-    # print(sql)
+    sql = "call updatescore('%s','%s',%d)" % (SNO, result[0][0], int(GRADE))
     try:
         cursor.execute(sql)
         db.commit()  # 事务提交

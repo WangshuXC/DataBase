@@ -1,7 +1,7 @@
 from tkinter import ttk
 import tkinter as tk
 from PIL import Image, ImageTk
-import tets
+import defs
 import course_class
 
 
@@ -30,7 +30,7 @@ class score:
             "黑体", 12), command=self.back(SNO))
 
     def update_ui(self):
-        tets.display_score(self.score_text, self.SNO)
+        defs.display_score(self.score_text, self.SNO)
 
     def inilize(self):
         self.score_label.grid(row=0, column=1, sticky=(tk.N, tk.S))
@@ -52,5 +52,5 @@ class score:
 
 
 if __name__ == '__main__':
-    c = score('S1')
+    c = score('S2110951')
     c.start()

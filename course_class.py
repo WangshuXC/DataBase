@@ -1,6 +1,6 @@
 from tkinter import ttk
 import tkinter as tk
-import tets
+import defs
 import score_class
 
 
@@ -77,7 +77,7 @@ class course:
         # print("call choose!")
         course_number = self.course_entry.get()
         # print("call choose!")
-        tets.insert_choose_course(self.SNO, str(course_number), 0)
+        defs.insert_choose_course(self.SNO, str(course_number), 0)
         # print("call choose!")
         self.update_ui()
         # print("update!")
@@ -85,7 +85,7 @@ class course:
     # 退课
     def delete_course(self):
         course_number = self.course_entry.get()
-        tets.delete_choose_course(self.SNO, str(course_number))
+        defs.delete_choose_course(self.SNO, str(course_number))
         self.update_ui()
 
     # 更新ui
@@ -102,9 +102,9 @@ class course:
         for row in self.choose_course_text.get_children():
             self.choose_course_text.delete(row)
 
-        tets.display_student(self.student_text, self.SNO)
-        tets.display_course(self.course_text, self.SNO)
-        tets.display_choose_course(self.choose_course_text, self.SNO)
+        defs.display_student(self.student_text, self.SNO)
+        defs.display_course(self.course_text, self.SNO)
+        defs.display_choose_course(self.choose_course_text, self.SNO)
 
     def start(self):
         self.inilize()
