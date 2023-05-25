@@ -1,6 +1,5 @@
 from tkinter import ttk
 import tkinter as tk
-from PIL import Image, ImageTk
 import defs
 import course_class
 

@@ -28,7 +28,6 @@ def judge():
 
 
 def start():
-
     result = judge()
     if len(result) != 0:
         root.destroy()

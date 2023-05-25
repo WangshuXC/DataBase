@@ -67,10 +67,9 @@ class Teacher:
         for row in self.student_text.get_children():
             self.student_text.delete(row)
         defs.find_student_score(self.student_text, CNAME, self.TNO)
+
     # 修改成绩
-
     def change_score(self):
-
         SNO = self.student_id_entry.get()
         GRADE = self.student_grape_entry.get()
         CNAME = self.lb.get(self.lb.curselection())[0]
@@ -81,7 +80,7 @@ class Teacher:
         self.inilize()
         self.root.mainloop()
 
-    #
+    # 选择表格自动输入效果
     def on_select(self, event):
         tree = event.widget
         selected_item = tree.selection()[0]

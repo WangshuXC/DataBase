@@ -1,4 +1,3 @@
-# coding=utf-8
 import pymysql
 
 # 选课
@@ -106,14 +105,15 @@ def find_student_score(student_text, CNAME, TNAME):
     db = pymysql.connect(host='localhost', user='root',
                          password='200206', database='student', charset='utf8')
     cursor = db.cursor()
+
     """
-    sql = "select S.SNO,S.SNAME,SC.GRADE from  S,SC,C where S.SNO=SC.SNO and C.CNO=SC.CNO and C.CNAME='%s' and C.TNAME='%s'" % (
-        CNAME, TNAME)
+    sql = "select S.SNO,S.SNAME,SC.GRADE from  S,SC,C where S.SNO=SC.SNO and C.CNO=SC.CNO and C.CNAME='%s' and C.TNAME='%s'" % (CNAME, TNAME)
     cursor.execute(sql)
     """
 
     # 用视图查询
-    sql = " select sno,sname,grade from SCG where CNAME='%s' and TNAME='%s' "%(CNAME,TNAME)
+    sql = " select sno,sname,grade from SCG where CNAME='%s' and TNAME='%s' " % (
+        CNAME, TNAME)
     cursor.execute(sql)
 
     for rec in cursor:

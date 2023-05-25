@@ -74,13 +74,9 @@ class course:
 
     # 选课
     def choose_course(self):
-        # print("call choose!")
         course_number = self.course_entry.get()
-        # print("call choose!")
         defs.insert_choose_course(self.SNO, str(course_number), 0)
-        # print("call choose!")
         self.update_ui()
-        # print("update!")
 
     # 退课
     def delete_course(self):
@@ -90,15 +86,12 @@ class course:
 
     # 更新ui
     def update_ui(self):
-        # self.student_text.delete(1.0, tk.END)
         for row in self.student_text.get_children():
             self.student_text.delete(row)
 
-        # self.course_text.delete(1.0, tk.END)
         for row in self.course_text.get_children():
             self.course_text.delete(row)
 
-        # self.choose_course_text.delete(1.0, tk.END)
         for row in self.choose_course_text.get_children():
             self.choose_course_text.delete(row)
 
