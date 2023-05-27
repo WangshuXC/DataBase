@@ -1,4 +1,6 @@
 /.idea
 /__pycache__
+/venv
 /数据库工程作业.doc
 /log.py
+/.gitignore
